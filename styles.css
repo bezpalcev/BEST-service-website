@@ -551,6 +551,10 @@ body.menu-open .burger__line:nth-child(3) {
   .welcome__title {
     font-size: 25px;
   }
+
+  .welcome {
+    padding-top: 40px;
+  }
 }
 
 @media (max-width: 350px) {
