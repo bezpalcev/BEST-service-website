@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Best Сервис</title>
+  </head>
+  <body>
+    <div class="page">
+      <!-- <header class="header">
+      <div class="container">
+        <a href="#!" class="logo"
+          ><img class="logo-best-service" src="./images/test_logo.png" alt=""
+        /></a>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li><a href="#!" class="nav__link">Услуги</a></li>
+            <li><a href="#!" class="nav__link">О компании</a></li>
+            <li><a href="#!" class="nav__link">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <div class="number">
+          <a href="tel:+79883244444">+7 988 324-44-44</a>
+        </div>
+      </div>
+    </header> -->
+
+      <header class="header">
+        <div class="container">
+          <a href="#!" class="logo">
+            <img
+              class="logo-best-service"
+              src="./images/test_logo.png"
+              alt=""
+            />
+          </a>
+
+          <!-- новый обёртчик справа -->
+          <div class="header-right">
+            <nav class="nav">
+              <ul class="nav__list">
+                <li><a href="#!" class="nav__link">Услуги</a></li>
+                <li><a href="#!" class="nav__link">О компании</a></li>
+                <li><a href="#!" class="nav__link">Контакты</a></li>
+              </ul>
+            </nav>
+
+            <div class="number">
+              <a href="tel:+79883244444">+7 988 324-44-44</a>
+            </div>
+
+            <!-- бургер -->
+            <button class="burger" type="button" aria-label="Открыть меню">
+              <span class="burger__line"></span>
+              <span class="burger__line"></span>
+              <span class="burger__line"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <section class="welcome">
+        <div class="container">
+          <div class="welcome__text">
+            <h1 class="welcome__title">
+              Комплексный автосервис в Славянске-на-Кубани
+            </h1>
+            <p class="welcome__desc">
+              Мойка, химчистка, полировка, ремонт, шиномонтаж и замена
+              расходников — всё в одном месте.
+            </p>
+            <a
+              href="https://wa.me/79883244444"
+              target="_blank"
+              class="welcome__btn"
+              >Записаться</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="container">
+          <div class="stats__inner">
+            <div class="stats__item">
+              <div class="stats__value">8+</div>
+              <p class="stats__label">Лет работаем с автомобилями</p>
+            </div>
+
+            <div class="stats__item">
+              <div class="stats__value">1000+</div>
+              <p class="stats__label">Обслуженных клиентов</p>
+            </div>
+
+            <div class="stats__item">
+              <div class="stats__value">5000+</div>
+              <p class="stats__label">Выполненных работ</p>
+            </div>
+
+            <div class="stats__item">
+              <div class="stats__value">95%</div>
+              <p class="stats__label">Клиентов возвращаются снова</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="menu-overlay"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.querySelector(".burger");
+        const overlay = document.querySelector(".menu-overlay");
+        const navLinks = document.querySelectorAll(".nav__link");
+
+        function openMenu() {
+          document.body.classList.add("menu-open");
+        }
+
+        function closeMenu() {
+          document.body.classList.remove("menu-open");
+        }
+
+        function toggleMenu() {
+          document.body.classList.toggle("menu-open");
+        }
+
+        burger.addEventListener("click", toggleMenu);
+
+        overlay.addEventListener("click", closeMenu);
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 800) {
+            closeMenu();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

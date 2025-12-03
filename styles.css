@@ -1,0 +1,564 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.5;
+  color: #111;
+  background: #000000;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  min-height: 100vh;
+  /* transition: filter 0.25s ease; */
+}
+
+/* Когда открыт бургер — блюрим всю страницу */
+/* body.menu-open .page {
+  filter: blur(4px);
+} */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 1000;
+}
+
+body.menu-open .menu-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+p {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.header {
+  /* border-bottom: 1px solid #eee; */
+  background-color: #000000;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.container {
+  max-width: 1320px;
+  /* padding: 0 20px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo-best-service {
+  max-width: 140px;
+}
+
+.nav {
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.nav__link {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 19px;
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
+}
+
+.number {
+  font-size: 19px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.burger {
+  display: none; /* по умолчанию спрятан, появится в @media */
+  width: 32px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1002; /* выше оверлея и страницы */
+}
+
+.burger__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease,
+    bottom 0.25s ease;
+}
+
+.burger__line:nth-child(1) {
+  top: 0;
+}
+
+.burger__line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger__line:nth-child(3) {
+  bottom: 0;
+}
+
+/* крестик */
+body.menu-open .burger__line:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+body.menu-open .burger__line:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open .burger__line:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+/* ! WELCOME SECTION ! */
+
+.welcome {
+}
+
+.welcome .container {
+  display: flex;
+  align-items: center;
+}
+
+.welcome__text {
+  max-width: 44%;
+  margin-left: 20px;
+}
+
+.welcome__title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 47px;
+  line-height: 53px;
+  letter-spacing: -0.04em;
+  margin-bottom: 17px;
+
+  color: #ffffff;
+}
+
+.welcome__desc {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  max-width: 71%;
+
+  color: rgb(207 207 207);
+}
+
+.welcome__btn {
+  display: inline-block;
+  background-color: #e26900;
+  padding: 17px 40px;
+  border-radius: 16px;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 65px;
+  box-shadow: 0 4px 14px rgba(255, 128, 0, 0.3);
+
+  transition: all 0.5s;
+}
+
+.welcome__btn:hover {
+  background-color: #c65d00;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.welcome .container {
+  background-image: url("./images/real_bg.png");
+
+  background-size: cover; /* Чтобы картинка не сжималась, а обрезалась красиво */
+  background-position: center; /* Выровнять справа, как в макете */
+  background-repeat: no-repeat;
+
+  min-height: 659px;
+  /* margin-top: 10px; */
+  /* margin-bottom: 30px; */
+}
+
+.nav__list a {
+  transition: all 0.4s;
+}
+
+.nav__list a:hover {
+  opacity: 0.7;
+}
+
+/* !!!!!!!! */
+
+.stats {
+  background-color: #050505; /* чуть светлее/темнее, чем hero — по вкусу */
+
+  background-color: #000000;
+  /* padding: 60px 0 70px; */
+  color: #fff;
+}
+
+.stats .container {
+  margin-bottom: 200px;
+}
+
+.stats__inner {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  padding-top: 40px;
+  border-top: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* text-align: left; */
+}
+
+.stats__value {
+  font-family: "Montserrat";
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.stats__label {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Адаптив под мобилку */
+
+@media (max-width: 1200px) {
+  .welcome__title {
+    font-size: 39px;
+  }
+
+  .welcome__text {
+    /* max-width: 42%; */
+    max-width: 440px;
+  }
+
+  .stats__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .stats__label {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  /* Отступы секции, чтобы текст не прилипал к хедеру/к низу */
+  .welcome {
+    padding: 60px 0 40px;
+  }
+
+  .welcome .container {
+    max-width: 100%;
+    min-height: clamp(540px, 90vh, 720px); /* высота секции под экран */
+
+    /* МОБИЛЬНЫЙ ФОН С МАШИНОЙ */
+    background-image: url("./images/real_bg_mobile2.png");
+    background-repeat: no-repeat;
+    background-size: contain; /* машина всегда целиком влезает */
+    /* прижали к низу */
+
+    background-position: center calc(100% + 150px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .welcome__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    margin: 0 auto 24px;
+    max-width: 600px;
+  }
+
+  .welcome__title {
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .welcome__desc {
+    max-width: 380px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .welcome__btn {
+    margin-top: 32px;
+    padding: 14px 32px;
+    font-size: 16px;
+  }
+
+  .stats .container {
+    margin-bottom: 50px;
+  }
+
+  .stats__inner {
+    flex-direction: column;
+    padding-top: 55px;
+  }
+}
+
+@media (max-width: 900px) {
+  .welcome .container {
+    background-position: center calc(100% + 125px);
+  }
+}
+
+@media (max-width: 800px) {
+  .welcome .container {
+    background-position: center calc(100% + 65px);
+  }
+
+  /* показываем бургер, скрываем номер с обычным меню */
+  .burger {
+    display: block;
+  }
+
+  .number {
+    display: none;
+  }
+
+  /* делаем из .nav выезжающую панель справа */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 260px;
+    background-color: #050505;
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.6);
+
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    z-index: 1001;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 80px 24px 24px;
+  }
+
+  .nav__link {
+    font-size: 18px;
+  }
+
+  /* когда открыто меню */
+  body.menu-open .nav {
+    transform: translateX(0);
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .number {
+    display: none;
+  }
+
+  /* Боковое меню */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 260px;
+    background-color: #050505;
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.6);
+
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    z-index: 1001;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 80px 24px 24px;
+  }
+
+  .nav__link {
+    font-size: 18px;
+  }
+
+  body.menu-open .nav {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .welcome .container {
+    background-position: center calc(100% + 50px);
+  }
+}
+
+@media (max-width: 650px) {
+  .welcome .container {
+    background-position: center calc(100% + 0px);
+  }
+
+  .welcome {
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .welcome .container {
+    background-position: center calc(100% - 40px);
+  }
+}
+
+@media (max-width: 500px) {
+  .welcome .container {
+    background-position: center calc(100% - 40px);
+  }
+
+  .welcome__text {
+    max-width: 400px;
+  }
+
+  .welcome__title {
+    font-size: 29px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .logo-best-service {
+    max-width: 110px;
+  }
+
+  .stats__inner {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 460px) {
+  .welcome .container {
+    min-height: clamp(527px, 83vh, 650px);
+  }
+}
+
+@media (max-width: 410px) {
+  .welcome .container {
+    min-height: clamp(527px, 83vh, 585px);
+  }
+
+  .welcome__text {
+    max-width: 330px;
+  }
+
+  .welcome__title {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 350px) {
+  .welcome .container {
+    min-height: clamp(527px, 83vh, 600px);
+  }
+
+  .welcome__desc {
+    font-size: 17px;
+  }
+}
